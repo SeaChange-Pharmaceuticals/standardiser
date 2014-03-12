@@ -52,7 +52,12 @@ non_organic_elements = Chem.MolFromSmarts(non_organic_elements)
 
 salts = {}
 
-salts_fh = open(os.path.join(os.path.dirname(__file__), "data",  salts_file))
+import sys
+home_dir = os.path.dirname(__file__)
+exe_dir = getattr(sys, '_MEIPASS', None)
+if exe_dir:
+    home_dir = os.path.join(exe_dir, os.path.basename(home_dir))
+salts_fh = open(os.path.join(home_dir, "data",  salts_file))
 
 for record in csv.DictReader(salts_fh, delimiter="\t"):
 

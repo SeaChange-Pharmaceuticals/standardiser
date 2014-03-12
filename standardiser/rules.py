@@ -54,7 +54,14 @@ max_passes = 10
 
 # Module initialization...
 
-with open(os.path.join(os.path.dirname(__file__), data_dir_name, rules_file_name)) as rules_file:
+import sys
+home_dir = os.path.dirname(__file__)
+exe_dir = getattr(sys, '_MEIPASS', None)
+if exe_dir:
+    home_dir = os.path.join(exe_dir, os.path.basename(home_dir))
+rules_filename = os.path.join(home_dir, data_dir_name, rules_file_name)
+with open(rules_filename) as rules_file:
+#with open(os.path.join(os.path.dirname(__file__), data_dir_name, rules_file_name)) as rules_file:
 
     reader = csv.reader(ifilterfalse(lambda x: re.match(r"^\s*(?:#|$)", x), rules_file), delimiter="\t") # SMARTS and name, tab-seperated
 
