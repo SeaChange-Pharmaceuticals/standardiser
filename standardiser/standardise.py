@@ -42,7 +42,8 @@ from standardiser.utils import StandardiseException, sanity_check, timeout
 
 ########################################################################
 
-@timeout()
+# SEAware cannot use timeout as we are running in a thread
+#@timeout()
 def apply(input_mol, output_rules_applied=None): 
 
     # Get input molecule...
