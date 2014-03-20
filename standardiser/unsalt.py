@@ -52,6 +52,7 @@ non_organic_elements = Chem.MolFromSmarts(non_organic_elements)
 
 salts = {}
 
+# SEAware needs to locate the data files when inside a PyInstaller executable
 import sys
 home_dir = os.path.dirname(__file__)
 exe_dir = getattr(sys, '_MEIPASS', None)

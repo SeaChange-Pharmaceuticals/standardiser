@@ -54,6 +54,7 @@ max_passes = 10
 
 # Module initialization...
 
+# SEAware needs to locate the data files when inside a PyInstaller executable
 import sys
 home_dir = os.path.dirname(__file__)
 exe_dir = getattr(sys, '_MEIPASS', None)
